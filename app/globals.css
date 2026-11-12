@@ -1,0 +1,62 @@
+@import "tailwindcss";
+
+/* Paleta do escritório — viram classes: bg-creme, text-oliva, border-areia, etc. */
+@theme {
+  --color-creme: #fefae0;
+  --color-oliva: #5f6f52;
+  --color-oliva-escuro: #4b5941;
+  --color-areia: #f9ebc7;
+  --color-terra: #783d19;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-cormorant), ui-serif, Georgia, serif;
+}
+
+body {
+  background: var(--color-creme);
+  color: var(--color-terra);
+}
+
+/* Componentes reutilizáveis */
+@utility campo {
+  width: 100%;
+  border: 1px solid color-mix(in srgb, var(--color-terra) 20%, transparent);
+  background: var(--color-creme);
+  padding: 0.7rem 0.9rem;
+  font-size: 0.95rem;
+  color: var(--color-terra);
+  outline: none;
+  transition: border-color 150ms;
+  &:focus {
+    border-color: var(--color-oliva);
+  }
+  &::placeholder {
+    color: color-mix(in srgb, var(--color-terra) 40%, transparent);
+  }
+}
+
+@utility rotulo {
+  display: block;
+  margin-bottom: 0.4rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: color-mix(in srgb, var(--color-terra) 70%, transparent);
+}
+
+@utility botao {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background-color 150ms, opacity 150ms;
+  cursor: pointer;
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
